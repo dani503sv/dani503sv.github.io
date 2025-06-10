@@ -1,0 +1,120 @@
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #2e59d9;
+    --js-yellow: #f7df1e;
+    --js-dark: #323330;
+    --light-bg: #f8f9fc;
+}
+
+body {
+    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: var(--js-dark) !important;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--js-yellow) !important;
+    font-size: 1.2rem;
+}
+
+.btn-search {
+    background-color: var(--js-yellow);
+    color: var(--js-dark);
+    border: none;
+}
+
+.btn-search:hover {
+    background-color: #e6cf1a;
+    color: var(--js-dark);
+}
+
+.page-header {
+    color: var(--js-dark);
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.doc-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem 0 rgba(58, 59, 69, 0.2);
+}
+
+.card-header {
+    background-color: var(--js-dark);
+    color: var(--js-yellow);
+    font-weight: 600;
+    border-bottom: none;
+}
+
+.card-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #5a5c69;
+    margin-bottom: 0.5rem;
+}
+
+.code-block {
+    background-color: #f8f9fa;
+    border-left: 3px solid var(--primary-color);
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    font-family: 'Courier New', monospace;
+    color: #333;
+    border-radius: 0.25rem;
+}
+
+.btn-doc {
+    background-color: var(--primary-color);
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn-doc:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ===== ANIMACIÓN SCROLL ===== */
+.doc-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.doc-card.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background-color: #fff;
+    box-shadow: 0 -0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+/* Retraso progresivo para cada tarjeta */
+.doc-card:nth-child(1) { transition-delay: 0.1s; }
+.doc-card:nth-child(2) { transition-delay: 0.2s; }
+.doc-card:nth-child(3) { transition-delay: 0.3s; }
+/* ... */
