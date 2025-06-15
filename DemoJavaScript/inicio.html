@@ -539,7 +539,7 @@
             const minutoString = minutos.toString().padStart(2, '0');
             const segundoString = segundos.toString().padStart(2, '0');
             let horaString = "";
-            let horario = "AM"; // Por defecto asumimos AM
+            let horario = "";
 
             if (hora >=13 && hora <= 23) {
                 // Convertimos a formato de 12 horas
@@ -549,9 +549,11 @@
             } else if (hora === 0) {
                 // Medianoche es 12 AM
                 horaString = '12';
+                horario = "AM";
             } else {
                 // Si es menor a 13, mantenemos el formato de 24 horas
                 horaString = hora.toString().padStart(2, '0');
+                horario = "AM";
             }
             
             // 5. Combinamos en un string de tiempo (ej: "12:05:30")
