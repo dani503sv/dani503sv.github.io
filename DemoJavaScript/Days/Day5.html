@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 - JavaScript Documentation</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../img/Logo/logoNegro.webp"> 
+</head>
+
+<body>
+    <script>
+        // Verificación de autenticación en cada página protegida
+        document.addEventListener('DOMContentLoaded', function() {
+            if(window.location.pathname !== '../index.html') {
+                if(sessionStorage.getItem('autentificacion') !== 'true') {
+                    window.location.href = '../index.html';
+                }
+            }
+        });
+    </script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <i class="fab fa-js-square me-2"></i>DAY 5 - JAVASCRIPT 
+            </a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+                <button class="btn btn-search" type="submit">
+                    <i class="fas fa-search me-1"></i> Buscar
+                </button>
+                <a class="btn btn-search mx-2" href="../inicio.html">
+                    <i class="fas fa-close me-1"></i> Cerrar
+                </a>
+            </form>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fab fa-js me-2"></i>JavaScript</h1>
+            <p class="lead">Creado por Daniel Amaya</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://chatgpt.com/" target="_blank" class="btn btn-light btn-lg px-4 me-2">
+                    <i class="fas fa-robot me-1"></i> Chat GPT
+                </a>
+            </div>
+        </div>
+        
+        <!-- Documentation Cards -->
+        <div class="row">
+            
+            <div class="col-lg-6">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>CLASES (POO)
+                    </div>
+                    <h3 class="card-title my-3">CLASES</h3>
+                    <div class="code-block">
+
+                        //clases POO <br><br>
+
+                        class Animal{<br><br>
+                            &emsp;//constructor de la clase Animal<br>
+                            &emsp;//teniendo parametros nombre y genero<br>
+                            &emsp;//Inicializamos las propiedades de la clase<br><br>
+                            
+                            &emsp;constructor(nombre, genero){<br>
+                                &emsp;&emsp;this.nombre = nombre;<br>
+                                &emsp;&emsp;this.genero = genero;<br>
+                            &emsp;}<br><br>
+
+                            &emsp;//metodo<br>
+
+                            &emsp;sonido(){<br>
+                                &emsp;&emsp;console.log("El animal hace un sonido");<br>
+                            &emsp;}<br><br>
+
+                            &emsp;saludar(){<br>
+                                &emsp;&emsp;console.log("Hola soy "+this.nombre+" y soy un "+this.genero);<br>
+                            &emsp;}<br>
+                        }<br><br>
+
+                        //crear objecto de la clase Animal<br>
+                        const sasha = new Animal("Sasha", "Hembra"),<br>
+                        shapo = new Animal("Shapo", "Macho");<br><br>
+
+                        //ver objectos en consola<br>
+                        console.log(sasha);<br>
+                        console.log(shapo);<br>
+                        shapo.saludar();<br>
+                        shapo.sonido(); //llama al metodo sonido de la clase Animal<br>
+                        sasha.saludar();<br>
+
+ 
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>HERENCIA DE CLASES
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">HERENCIA </h3>
+
+                        <div class="code-block">
+                           //HERENCIA DE CLASES <br>
+                            //usando extends para heredar de la clase Animal<br><br>
+                            class Perro extends Animal{<br>
+
+                                &emsp;constructor(nombre, genero, tamanio){<br>
+                                    &emsp;&emsp;//nombre y genero son parametros de la clase Animal<br>
+                                    &emsp;&emsp;//no usar this en super, ya que no se ha inicializado<br>
+                                    &emsp;&emsp;super(nombre, genero); //llamamos al constructor de la clase Animal<br>
+                                    &emsp;&emsp;this.tamanio = tamanio; //agregamos una nueva propiedad tamanio<br>
+                                &emsp;}<br><br>
+
+                                &emsp;//sobreescribimos el metodo sonido de la clase Animal<br>
+                                &emsp;sonido(){<br>
+                                    &emsp;&emsp;console.log("Soy un perro y ladro");<br>
+                                &emsp;}<br><br>
+
+                                &emsp;ladrar(){<br>
+                                    &emsp;&emsp;console.log(" Guau guau, soy "+this.nombre+" y soy un "+this.tamanio);<br>
+                                &emsp;}<br><br>
+                            }<br><br>
+
+                            //crear objecto de la clase Perro<br>
+                            const blaki = new Perro("Blaki", "Hembra", "Pequeña");<br>
+
+                            console.log(blaki);<br>
+                            blaki.saludar();<br>
+                            blaki.ladrar();<br>
+                        </div>
+                        
+                       
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-terminal me-2"></i>Metodos GET Y SET
+                    </div>
+                    <div class="card-body">
+
+                        <h3 class="card-title">GET Y SET</h3>
+
+                        <div class="code-block">
+                           //METODO GET Y SET <br>
+                            class Personas{<br>
+
+                                 &emsp;constructor(){<br>
+                                     &emsp; &emsp;this.nombre = null; // propiedad privada<br>
+                                     &emsp; &emsp;this.edad = null; // propiedad privada<br>
+                                 &emsp;}<br><br>
+
+                                 &emsp;//SE USAN COMO PROPIEDADES<br>
+                                 &emsp;//metodo get para obtener el nombre<br>
+                                 &emsp;get getNombre(){<br>
+                                     &emsp; &emsp;return this.nombre;<br>
+                                &emsp; }<br><br>
+
+                                 &emsp;//metodo set para establecer el nombre<br>
+                                 &emsp;set setNombre(nombre){<br>
+                                     &emsp; &emsp;this.nombre = nombre;<br>
+                                &emsp; }<br><br>
+
+                                 &emsp;//metodo get para obtener la edad<br>
+                                 &emsp;get getEdad(){<br>
+                                     &emsp; &emsp;return this.edad;<br>
+                                 &emsp;}<br><br>
+                                 &emsp;//metodo set para establecer la edad<br>
+                                 &emsp;set setEdad(edad){<br>
+                                     &emsp; &emsp;this.edad = edad;<br>
+                                 &emsp;}<br><br>
+
+                                 &emsp;//OBJECTO ESTATiCO<br>
+                                 &emsp;static metodoEstatico(){<br>
+                                     &emsp; &emsp;console.log("Esta es una clase de ejemplo para demostrar el uso de métodos static.");<br>
+                                 &emsp;}<br><br>
+
+                            }<br><br>
+
+                            // Crear una instancia de la clase Personas<br>
+                            const persona = new Personas();<br><br>
+
+                            // Establecer valores usando los métodos set<br>
+                            persona.setEdad = "Daniel";<br>
+                            persona.setNombre = 20;<br><br>
+
+                            // Obtener valores usando los métodos get<br>
+                            console.log("Nombre: " + persona.getNombre); // Imprime: Nombre: Daniel<br>
+                            console.log("Edad: " + persona.getEdad); // Imprime: Edad: 20<br><br>
+
+                            //llamar al metodo estatico<br>
+                            Personas.metodoEstatico(); // Imprime: Esta es una clase de ejemplo para demostrar el uso de métodos static.<br>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Objecto console
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">console</h3>
+
+                        <div class="code-block">
+                          // Objecto console <br>
+                            console.log("Hola, soy un objeto console");<br>
+                            console.log(console);<br>
+                            console.error("Esto es un error");<br>
+                            console.warn("Esto es una advertencia");<br>
+                            console.info("Esto es un mensaje informativo");<br>
+                            
+                            // Limpia la consola console.clear(); <br><br>
+
+                            //inicializa un grupo en la consola<br>
+                            console.group("Grupo de objecto console");<br>
+                            console.log("log, error, warn, info");<br>
+                            console.groupEnd();<br><br>
+
+                            //iniciar una tabla en la consola<br>
+                            const tabla1 = [<br>
+                                &emsp;//lo damos una array<br>
+                                &emsp;{ nombre: "Daniel", edad: 20 },<br>
+                                &emsp;{ nombre: "Sasha", edad: 3 },<br>
+                                &emsp;{ nombre: "Shapo", edad: 2 }<br>
+                            ];<br><br>
+
+                            const tabla2 = {<br>
+                                &emsp;nombre: "Daniel",<br>
+                                &emsp;edad: 20,<br>
+                                &emsp;mascota: "Sasha",<br>
+                            };<br><br>
+
+                            //mostramos la tabla en la consola<br>
+                            console.table(tabla1);<br>
+                            console.table(tabla2);<br><br>
+
+                            //iniciar time en la consola<br>
+                            /*console.time("Tiempo de ejecución: ");<br>
+                            const array = Array(100000);<br><br>
+
+                            //inicializamos un array de 1 millones de elementos<br>
+                            for (let i = 0; i < array.length; i++) {<br>
+                                &emsp;array[i] = i;<br>
+                            }<br>
+
+                            console.timeEnd("Tiempo de ejecución: ");*/<br>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Objecto Date
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Date</h3>
+
+                        <div class="code-block">
+                          //DATE <br>
+                            let fecha = new Date();<br>
+                            console.log(fecha);<br><br>
+
+                            //Dia del mes<br>
+                            console.log("Day: " +fecha.getDate());<br>
+                            console.log("Day de la semana [0-6]: " +fecha.getDay()); //Dia de la semana (0-6)<br><br>
+                            //Mes<br>
+                            console.log("Mes: " + fecha.getMonth()); //Mes (0-11)<br><br>
+                            //año<br>
+                            console.log("Año: " + fecha.getFullYear()); //Año<br><br>
+                            //Hora, minutos, segundos<br>
+                            console.log("Hora: " + fecha.getHours()); //Hora<br>
+                            console.log("Minutos: " + fecha.getMinutes()); //Minutos<br>
+                            console.log("Segundos: " + fecha.getSeconds()); //Segundos<br><br>
+
+                            //Usando toString<br>
+                            console.log(fecha.toDateString()); //Fecha en formato legible<br>
+                            console.log(fecha.toLocaleString()); //Fecha y hora en formato local<br>
+                            console.log(fecha.toLocaleTimeString()); //Hora en formato local<br>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Objecto Math
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Math</h3>
+                        <div class="code-block">
+                           //Math Object <br>
+                            console.log("Valor de PI: " + Math.PI); // Valor de PI <br>
+                            console.log("Raíz cuadrada de 16: " + Math.sqrt(16)); // Raíz cuadrada <br>
+                            console.log("Numero potencia: "+Math.pow(2,4)); //potencia <br>
+                            console.log("Número aleatorio entre 1 y 100: " + Math.round(Math.random()*100)); // Número aleatorio y redondeado <br>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-lg-6">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>OPERADOR OR ||
+                    </div>
+                    <div class="card-body"> 
+                        <h3 class="card-title">OPERADOR DE CORTOCIRCUITO OR</h3>
+                        <div class="code-block">
+                            //OR || <br>
+                            function personaX(nombre){<br>
+                                &emsp;//Usa valor True<br>
+                                &emsp;this.nombre = nombre  || "Desconocido"; // Si no se pasa un nombre, se asigna "Desconocido"<br>
+                                &emsp;console.log("Hola, soy " + this.nombre);<br>
+                            }<br>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>OPERADOR AND &&
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">OPERADOR DE CORTOCIRCUITO AND </h3>
+
+                        <div class="code-block">
+                            //AND && <br>
+                            function personaXx(nombre){<br>
+                                &emsp;//Usa valor Falso<br>
+                                &emsp;this.nombre = nombre  && "Desconocido"; // Si no se pasa un nombre, se asigna "Desconocido"<br>
+                                &emsp;console.log("Hola, soy " + this.nombre);<br>
+                            }<br>
+
+                            personaXx("Daniel"); // Imprime: Hola, soy Desconocido<br>
+                        </div>
+                        
+                       
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 27 Days JS. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.facebook.com/share/18wmJFPFDs/" class="text-dark me-3" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/__dani503/" class="text-dark me-3" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@__dani503" class="text-dark me-3" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://github.com/dani503sv" class="text-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--CLASES Y HERENCIA -->
+    <script>
+        //CLASES Y HERENCIAS 
+        //clases POO
+
+        class Animal{
+            //constructor de la clase Animal
+            //teniendo parametros nombre y genero
+            //Inicializamos las propiedades de la clase
+            
+            constructor(nombre, genero){
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+
+            //metodo
+
+            sonido(){
+                console.log("El animal hace un sonido");
+            }
+
+            saludar(){
+                console.log("Hola soy "+this.nombre+" y soy un "+this.genero);
+            }
+        }
+
+        //crear objecto de la clase Animal
+        const sasha = new Animal("Sasha", "Hembra"),
+         shapo = new Animal("Shapo", "Macho");
+
+         //ver objectos en consola
+         console.log(sasha);
+         console.log(shapo);
+         shapo.saludar();
+         shapo.sonido(); //llama al metodo sonido de la clase Animal
+         sasha.saludar();
+
+         //HERENCIA DE CLASES
+         //usando extends para heredar de la clase Animal
+        class Perro extends Animal{
+
+            constructor(nombre, genero, tamanio){
+                //nombre y genero son parametros de la clase Animal
+                //no usar this en super, ya que no se ha inicializado
+                super(nombre, genero); //llamamos al constructor de la clase Animal
+                this.tamanio = tamanio; //agregamos una nueva propiedad tamanio
+            }
+
+            //sobreescribimos el metodo sonido de la clase Animal
+            sonido(){
+                console.log("Soy un perro y ladro");
+            }
+
+            ladrar(){
+                console.log(" Guau guau, soy "+this.nombre+" y soy un "+this.tamanio);
+            }
+        }
+
+        //crear objecto de la clase Perro
+        const blaki = new Perro("Blaki", "Hembra", "Pequeña");
+
+        console.log(blaki);
+        blaki.saludar();
+        blaki.ladrar();
+    </script>
+
+    <!-- METODO GET Y SET -->
+     <script>
+        //METODO GET Y SET
+        class Personas{
+
+            constructor(){
+                this.nombre = null; // propiedad privada
+                this.edad = null; // propiedad privada
+            }
+
+            //SE USAN COMO PROPIEDADES
+            //metodo get para obtener el nombre
+            get getNombre(){
+                return this.nombre;
+            }
+
+            //metodo set para establecer el nombre
+            set setNombre(nombre){
+                this.nombre = nombre;
+            }
+
+            //metodo get para obtener la edad
+            get getEdad(){
+                return this.edad;
+            }
+            //metodo set para establecer la edad
+            set setEdad(edad){
+                this.edad = edad;
+            }
+
+            //OBJECTO ESTATiCO
+            static metodoEstatico(){
+                console.log("Esta es una clase de ejemplo para demostrar el uso de métodos static.");
+            }
+
+        }
+
+        // Crear una instancia de la clase Personas
+        const persona = new Personas();
+
+        // Establecer valores usando los métodos set
+        persona.setEdad = "Daniel";
+        persona.setNombre = 20;
+
+        // Obtener valores usando los métodos get
+        console.log("Nombre: " + persona.getNombre); // Imprime: Nombre: Daniel
+        console.log("Edad: " + persona.getEdad); // Imprime: Edad: 20
+
+        //llamar al metodo estatico
+        Personas.metodoEstatico(); // Imprime: Esta es una clase de ejemplo para demostrar el uso de métodos static.
+
+     </script>
+
+    <!-- Objecto console -->
+     <script> 
+        // Objecto console
+        console.log("Hola, soy un objeto console");
+        console.log(console);
+        console.error("Esto es un error");
+        console.warn("Esto es una advertencia");
+        console.info("Esto es un mensaje informativo");
+
+        // Limpia la consola console.clear(); 
+
+        //inicializa un grupo en la consola
+        console.group("Grupo de objecto console");
+        console.log("log, error, warn, info");
+        console.groupEnd();
+
+        //iniciar una tabla en la consola
+        const tabla1 = [
+            //lo damos una array
+            { nombre: "Daniel", edad: 20 },
+            { nombre: "Sasha", edad: 3 },
+            { nombre: "Shapo", edad: 2 }
+        ];
+
+        const tabla2 = {
+            nombre: "Daniel",
+            edad: 20,
+            mascota: "Sasha",
+        };
+
+        //mostramos la tabla en la consola
+        console.table(tabla1);
+        console.table(tabla2);
+
+        //iniciar time en la consola
+        /*console.time("Tiempo de ejecución: ");
+        const array = Array(100000);
+
+        //inicializamos un array de 1 millones de elementos
+        for (let i = 0; i < array.length; i++) {
+            array[i] = i;
+        }
+
+        console.timeEnd("Tiempo de ejecución: ");*/
+
+
+ 
+     </script>
+
+    <!-- Objecto date -->
+    <script> 
+        //DATE
+        let fecha = new Date();
+        console.log(fecha);
+
+        //Dia del mes
+        console.log("Day: " +fecha.getDate());
+        console.log("Day de la semana [0-6]: " +fecha.getDay()); //Dia de la semana (0-6)
+        //Mes
+        console.log("Mes: " + fecha.getMonth()); //Mes (0-11)
+        //año
+        console.log("Año: " + fecha.getFullYear()); //Año
+        //Hora, minutos, segundos
+        console.log("Hora: " + fecha.getHours()); //Hora
+        console.log("Minutos: " + fecha.getMinutes()); //Minutos
+        console.log("Segundos: " + fecha.getSeconds()); //Segundos
+
+        //Usando toString
+        console.log(fecha.toDateString()); //Fecha en formato legible
+        console.log(fecha.toLocaleString()); //Fecha y hora en formato local
+        console.log(fecha.toLocaleTimeString()); //Hora en formato local
+
+    </script>
+
+    <!-- Objecto Math -->
+     <script>
+        //Math Object
+        console.log("Valor de PI: " + Math.PI); // Valor de PI
+        console.log("Raíz cuadrada de 16: " + Math.sqrt(16)); // Raíz cuadrada
+        console.log("Numero potencia: "+Math.pow(2,4)); //potencia
+        console.log("Número aleatorio entre 1 y 100: " + Math.round(Math.random()*100)); // Número aleatorio y redondeado
+
+    </script>
+
+    <!-- Operador cortocircuito -->
+    <script>
+        //operador de cortocircuito or || and &&
+        
+        //OR ||
+        function personaX(nombre){
+            //Usa valor True
+            this.nombre = nombre  || "Desconocido"; // Si no se pasa un nombre, se asigna "Desconocido"
+            console.log("Hola, soy " + this.nombre);
+        }
+
+        personaX("Daniel"); // Imprime: Hola, soy Daniel
+
+        //AND &&
+        function personaXx(nombre){
+            //Usa valor Falso
+            this.nombre = nombre  && "Desconocido"; // Si no se pasa un nombre, se asigna "Desconocido"
+            console.log("Hola, soy " + this.nombre);
+        }
+
+        personaXx("Daniel"); // Imprime: Hola, soy Desconocido
+        
+
+    </script>
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- EFECTOS SCROLLss -->
+    <script>
+
+    // ===== EFECTO SCROLL (Intersection Observer) =====
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".doc-card");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("mostrar");  
+                }
+            });
+        }, { threshold: 0.1 }); // Se activa cuando el 10% del elemento es visible
+
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+    });
+    </script>
+
+</body>
+</html>

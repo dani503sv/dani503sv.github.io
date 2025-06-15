@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 - JavaScript Documentation</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../img/Logo/logoNegro.webp">  
+</head>
+
+<body>
+    <script>
+        // Verificación de autenticación en cada página protegida
+        document.addEventListener('DOMContentLoaded', function() {
+            if(window.location.pathname !== '../index.html') {
+                if(sessionStorage.getItem('autentificacion') !== 'true') {
+                    window.location.href = '../index.html';
+                }
+            }
+        });
+    </script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <i class="fab fa-js-square me-2"></i>DAY 4 - JAVASCRIPT 
+            </a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+                <button class="btn btn-search" type="submit">
+                    <i class="fas fa-search me-1"></i> Buscar
+                </button>
+                <a class="btn btn-search mx-2" href="../inicio.html">
+                    <i class="fas fa-close me-1"></i> Cerrar
+                </a>
+            </form>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fab fa-js me-2"></i>JavaScript</h1>
+            <p class="lead">Creado por Daniel Amaya</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://chatgpt.com/" target="_blank" class="btn btn-light btn-lg px-4 me-2">
+                    <i class="fas fa-robot me-1"></i> Chat GPT
+                </a>
+            </div>
+        </div>
+        
+        <!-- Documentation Cards -->
+        <div class="row">
+            
+            <div class="col-lg-6">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Destructuración { }
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Destructuración</h3>
+                        
+
+                        <div class="code-block">
+                            //Destructuracion Array <br>
+
+                            let numeros = [0,1,2,3];<br><br>
+
+                            //destruturar cada array guardada por variables 0+<br>
+                            //en ingles<br>
+                            const [zero, one, two, three] = numeros;<br><br>
+
+                            //Se llama por cada variable<br>
+                            console.log(zero, one);<br><br>
+
+                            //desde un arreglo<br>
+
+                            let persona = {<br>
+                                name : ["dani", "ale"],<br>
+                                age : [18,21],<br>
+                                firtName : ["leon", "amaya"]<br>
+                            };<br><br> 
+                            
+                            //destructurar objeto<br>
+
+                            let{name, age, firtName} = persona;<br>
+
+                            console.log("Nombre: "+name[1]+" edad: "+age[0]+" apellido: "+firtName[1]);<br>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Objectos Literales ( )
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Objectos Literales </h3>
+                        
+                        
+                        <div class="code-block">
+                            //Objectos lirales, forma de crear un objeto sin fuction() <br>
+                            let nombre = "Daniel", dui="123-1";<br><br>
+
+                            const persona1 = {<br>
+                                  &emsp;nombre : this.nombre,<br>
+                                  &emsp;dui : this.dui,<br>
+
+                                  &emsp;//nueva forma de crear un fuction<br>
+                                  &emsp;imprmir(){<br>
+                                     &emsp;  &emsp; console.log(nombre + " "+ dui + " " );<br>
+                                 &emsp; }<br>
+                            };<br><br>
+
+                            //llamar al objecto<br>
+                            console.log(persona1);<br>
+                            persona1.imprmir();<br>
+                        </div>
+                        
+                       
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-terminal me-2"></i>REST and operador SPEAD
+                    </div>
+                    <div class="card-body">
+
+                        <h3 class="card-title">REST and operador SPEAD</h3>
+                        <h3>REST</h3>
+                        <div class="code-block">
+                            //script para REST y Operador Spread <br>
+
+                            //REST agregar parametros infinitos<br>
+                            //se usa cuando no se sabe cuantos argumentos se recibira<br>
+                            //Se usa em framework <br>
+                            //...c para hacerlo infinito<br><br>
+                            function sumar(a,b, ...c){<br>
+                                 &emsp;let resultado = a+b;<br>
+
+                                 &emsp;//sumar los valores infinitos que recibira C<br>
+                                &emsp; c.forEach(<br>
+                                     &emsp; &emsp;function (n){<br>
+                                         &emsp; &emsp;resultado += n;<br>
+                                      &emsp;&emsp;}<br>
+                                &emsp; );<br>
+
+                                 &emsp;return resultado;<br>
+                            }<br><br>
+
+                            //recibira argumentos<br>
+                            console.log(sumar(1,2,3,1));<br>
+                        </div>
+
+                        <h3>SPEAD</h3>
+                        <div class="code-block">
+                             //SPREAD<br>
+                            const arr1 = [1,2,3,4,5] , arr2 = [1,2,3,4,5];<br><br>
+
+                            //se agrega los valores anteriores a una array<br>
+                            //modifica espacios que se necesita<br>
+                            const arr3 = [...arr1, ...arr2];<br>
+
+                            console.log(arr3);
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Arrow fuction
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Arrow fuction</h3>
+                        
+                         <h5>FArrow fuctionOR</h5>
+                        <div class="code-block">
+                           //ARROW FUNCTIONS <br>
+                            //mejora y mas sensillo<br>
+                            //funciones anonimas expresadas<br>
+                            //() => <br><br>
+
+                            let anonimo = () => console.log("Saludar anonima");<br>
+                        
+                            anonimo();<br><br>
+
+                            //parametro con funcion<br>
+                            anonimo = (nombre) => console.log("Saludar anonima "+nombre);<br>
+                            anonimo("daniel");<br><br>
+
+
+                            let sumarN = (a,b) =>  a+b;<br>
+
+                            console.log("suma: "+sumarN(1,2));<br>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Prototipos
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Prototipos</h3>
+                        
+                        <h3>PROGRAMACION ORIENTADA A OBJECTOS</h3>
+                        <div class="code-block">
+                           /*PROTOTIPOS PROGRAMACION ORIENTADA A OBJECTOS <br>
+                            Clases - Modelo a seguir<br>
+                            Objectos - es una instancia de una clase<br>
+                            Atributos - variables globales (caracteristica o propiedad)<br>
+                            Metodos - bloques de codigos reutilizables o acciones<br>
+                            */<br><br>
+
+                            //OBJECTO<br><br>
+                            const animal = {<br>
+                                &emsp;nombre : "snopy",<br>
+                                &emsp;sonar() {<br>
+                                    &emsp;&emsp;console.log("hago sonido porque estoy vivo");<br>
+                                &emsp;}<br>
+                            }<br>
+                            console.log(animal);<br><br>
+
+                            //CREAR FUNCION CONSTRUCTORA<br>
+                            //constructor<br>
+                            //usar this<br>
+                            //metodos dejar fuera del prototipo para que no duplique espacio<br>
+                            //solo dejar propiedades<br><br>
+
+                            function Animal(nombre, genero){<br>
+                                &emsp;this.nombre = nombre;<br>
+                                &emsp;this.genero = genero;   <br>
+                            }<br><br>
+
+                            //asignar por fuera al protitipo<br><br>
+                            Animal.prototype.sonar = function () {<br>
+                                    &emsp;console.log("Sonidos raros");<br>
+                            }<br><br>
+
+                            //crear un objecto del constructor<br>
+                            const snopy = new Animal("snopy", "masculino"),<br>
+                            bonny = new Animal("bonny", "hembra");<br>
+
+                            console.log(snopy);<br>
+                            console.log(bonny);<br>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+
+         <div class="row mt-4">
+            <div class="col-12">
+                <div class="card doc-card">
+                    <div class="card-header">
+                        <i class="fas fa-code me-2"></i>Herencia de prototipos
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Herencia</h3>
+                        
+                        
+                        <div class="code-block">
+                           //HERENCIA DE PROTOTIPOS <br>
+                            console.log("==========HERENCIA POO========");<br><br>
+
+                            //CLASE PADRE<br><br>
+                            function Persona(nombre, edad, tel){<br>
+                                &emsp;this.nombre = nombre;<br>
+                                &emsp;this.edad = edad;<br>
+                                &emsp;this.tel = tel;<br>
+                            }   <br><br>
+
+                            //CREAMOS UN PROTIPO PARA UN METODO <br>
+                            Persona.prototype.imprimir = function(){<br>
+                                &emsp;console.log("nombre: "+this.nombre+ " edad: "+this.edad<br>
+                                   &emsp;&emsp; + " tel: "+ this.tel<br>
+                                &emsp;);<br>
+                            }<br><br>
+
+                            //CREAMOS UN OBJECTO Y LE DAMOS SUS PARAMETROS<br>
+                            const personaX = new Persona("D", "21", "2121");<br><br>
+
+                            //llamar al metodo por prototipo Y VER COMO FUNCIONA<br>
+                            personaX.imprimir();<br><br>
+
+                            //HERENCIA <br>
+                            //CLASE HIJA<br>
+                            //DONDE USAMOS this.super para heredes constructor y para pasarle argumentos<br><br>
+                            function Usuario(usuario, pass, nombre, edad, tel){<br>
+                                &emsp;//heredar Persona como hijo<br>
+                               &emsp; this.super = Persona;<br>
+                                &emsp;this.super(nombre, edad, tel);<br>
+                                &emsp;this.usuario  = usuario;<br>
+                                &emsp;this.pass = pass;<br>
+                            }<br><br>
+
+                            //sacar instancia Usuario hereda de persona<br>
+                            Usuario.prototype = new Persona();<br>
+                            Usuario.prototype.constructor = Usuario;<br><br>
+
+                            //sobreescribir metodos prototipo<br>
+                            Usuario.prototype.imprimir = function(){<br>
+                                &emsp;console.log("NOMBRE: "+this.nombre+ " EDAD: "+this.edad<br>
+                                    &emsp;&emsp;+ " TEL: "+ this.tel<br>
+                                &emsp;);<br>
+                            };<br><br>
+
+                            Usuario.prototype.usuarioImprimir = function(){<br>
+                                &emsp;console.log("usuario: "+this.usuario + " pass: "+this.pass);<br>
+                                &emsp;this.imprimir();<br>
+                            }<br>
+
+                            const user = new Usuario("usuario", "pass", "Dani", 21, "2121");<br>
+
+                            user.usuarioImprimir();<br>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 27 Days JS. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.facebook.com/share/18wmJFPFDs/" class="text-dark me-3" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/__dani503/" class="text-dark me-3" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@__dani503" class="text-dark me-3" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://github.com/dani503sv" class="text-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        //Destructuracion Array
+
+        let numeros = [0,1,2,3];
+
+        //destruturar cada array guardada por variables 0+
+        //en ingles
+        const [zero, one, two, three] = numeros;
+
+        //Se llama por cada variable
+        console.log(zero, one);
+
+        //desde un arreglo
+
+        let persona = {
+            name : ["dani", "ale"],
+            age : [18,21],
+            firtName : ["leon", "amaya"]
+        };
+        
+        //destructurar objeto
+
+        let{name, age, firtName} = persona;
+
+        console.log("Nombre: "+name[1]+" edad: "+age[0]+" apellido: "+firtName[1]);
+
+    </script>
+
+    <script>
+        //Objectos lirales, forma de crear un objeto sin fuction()
+        let nombre = "Daniel", dui="123-1";
+
+        const persona1 = {
+            nombre : this.nombre,
+            dui : this.dui,
+
+            //nueva forma de crear un fuction
+            imprmir(){
+                console.log(nombre + " "+ dui + " " );
+            }
+        };
+
+        //llamar al objecto
+        console.log(persona1);
+        persona1.imprmir();
+        
+
+
+    </script>
+    
+    <script>
+        //script para REST y Operador Spread
+
+        //REST agregar parametros infinitos
+        //se usa cuando no se sabe cuantos argumentos se recibira
+        //Se usa em framework 
+        //...c para hacerlo infinito
+        function sumar(a,b, ...c){
+            let resultado = a+b;
+
+            //sumar los valores infinitos que recibira C
+            c.forEach(
+                function (n){
+                    resultado += n;
+                }
+            );
+
+            return resultado;
+        }
+
+        //recibira argumentos
+        console.log(sumar(1,2,3,1));
+
+
+        //SPREAD
+        const arr1 = [1,2,3,4,5] , arr2 = [1,2,3,4,5];
+
+        //se agrega los valores anteriores a una array
+        //modifica espacios que se necesita
+        const arr3 = [...arr1, ...arr2];
+
+        console.log(arr3);
+
+    </script>
+
+    <script>
+        //ARROW FUNCTIONS
+        //mejora y mas sensillo
+        //funciones anonimas expresadas
+        //() => 
+
+        let anonimo = () => console.log("Saludar anonima");
+    
+        anonimo();
+
+        //parametro con funcion
+        anonimo = (nombre) => console.log("Saludar anonima "+nombre);
+        anonimo("daniel");
+
+
+        let sumarN = (a,b) =>  a+b;
+
+        console.log("suma: "+sumarN(1,2));
+
+
+    </script>
+
+    <script>
+        console.log("==========CONSTRUCTOR POO========");
+        /*PROTOTIPOS PROGRAMACION ORIENTADA A OBJECTOS
+        Clases - Modelo a seguir
+        Objectos - es una instancia de una clase
+        Atributos - variables globales (caracteristica o propiedad)
+        Metodos - bloques de codigos reutilizables o acciones
+        */
+
+        //objecto
+        const animal = {
+            nombre : "snopy",
+            sonar() {
+                console.log("hago sonido porque estoy vivo");
+            }
+        }
+        console.log(animal);
+
+        //CREAR FUNCION CONSTRUCTORA
+        //constructor
+        //usar this
+        //metodos dejar fuera del prototipo para que no duplique espacio
+        //solo dejar propiedades
+        function Animal(nombre, genero){
+            this.nombre = nombre;
+            this.genero = genero;   
+        }
+
+        //asignar por fuera al protitipo
+        Animal.prototype.sonar = function () {
+                console.log("Sonidos raros");
+        }
+
+        //crear un objecto del constructor
+        const snopy = new Animal("snopy", "masculino"),
+        bonny = new Animal("bonny", "hembra");
+
+        console.log(snopy);
+        console.log(bonny);
+
+    </script>
+
+    <script>
+        //HERENCIA DE PROTOTIPOS
+        console.log("==========HERENCIA POO========");
+
+        //CLASE PADRE
+        function Persona(nombre, edad, tel){
+            this.nombre = nombre;
+            this.edad = edad;
+            this.tel = tel;
+        }   
+
+        //CREAMOS UN PROTIPO PARA UN METODO 
+        Persona.prototype.imprimir = function(){
+            console.log("nombre: "+this.nombre+ " edad: "+this.edad
+                + " tel: "+ this.tel
+            );
+        }
+
+        //CREAMOS UN OBJECTO Y LE DAMOS SUS PARAMETROS
+        const personaX = new Persona("D", "21", "2121");
+
+        //llamar al metodo por prototipo Y VER COMO FUNCIONA
+        personaX.imprimir();
+
+        //HERENCIA 
+        //CLASE HIJA
+        //DONDE USAMOS this.super para heredes constructor y para pasarle argumentos
+        function Usuario(usuario, pass, nombre, edad, tel){
+            //heredar Persona como hijo
+            this.super = Persona;
+            this.super(nombre, edad, tel);
+            this.usuario  = usuario;
+            this.pass = pass;
+        }
+
+        //sacar instancia Usuario hereda de persona
+        Usuario.prototype = new Persona();
+        Usuario.prototype.constructor = Usuario;
+
+        //sobreescribir metodos prototipo
+        Usuario.prototype.imprimir = function(){
+             console.log("NOMBRE: "+this.nombre+ " EDAD: "+this.edad
+                + " TEL: "+ this.tel
+            );
+        };
+
+        Usuario.prototype.usuarioImprimir = function(){
+            console.log("usuario: "+this.usuario + " pass: "+this.pass);
+            this.imprimir();
+        }
+
+        const user = new Usuario("usuario", "pass", "Dani", 21, "2121");
+
+        user.usuarioImprimir();
+
+
+    </script>
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // ===== EFECTO SCROLL (Intersection Observer) =====
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".doc-card");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("mostrar");  
+                }
+            });
+        }, { threshold: 0.1 }); // Se activa cuando el 10% del elemento es visible
+
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+    });
+    </script>
+
+</body>
+</html>
