@@ -536,12 +536,26 @@
             
             // 4. Formateamos para que siempre muestre 2 dígitos (ej: 05:03:09)
             // padStart(2, '0') añade un 0 al inicio si el número tiene solo 1 dígito
-            const horaString = hora.toString().padStart(2, '0');
             const minutoString = minutos.toString().padStart(2, '0');
             const segundoString = segundos.toString().padStart(2, '0');
+            let horaString = "";
+            let horario = "AM"; // Por defecto asumimos AM
+
+            if (hora >=13 && hora <= 23) {
+                // Convertimos a formato de 12 horas
+                const hora12 = hora - 12;
+                horaString = hora12.toString().padStart(2, '0');
+                horario = "PM"; // Si es mayor o igual a 13, es PM
+            } else if (hora === 0) {
+                // Medianoche es 12 AM
+                horaString = '12';
+            } else {
+                // Si es menor a 13, mantenemos el formato de 24 horas
+                horaString = hora.toString().padStart(2, '0');
+            }
             
             // 5. Combinamos en un string de tiempo (ej: "12:05:30")
-            const tiempoString = `${horaString}:${minutoString}:${segundoString}`;
+            const tiempoString = `${horaString}:${minutoString}:${segundoString} ${horario}`;
             
             // 6. Preparamos la fecha en formato bonito (ej: "lunes, 12 de junio de 2023")
             const opciones = { 
