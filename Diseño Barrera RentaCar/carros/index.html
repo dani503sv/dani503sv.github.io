@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarreraRentacar - Kia Forte 218</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold animate__animated animate__fadeInLeft" href="../home/index.html">
+                <img src="../img/iconoCirculoCarro.png" alt="Barrera Rent a Car" style="height: 40px; width: auto;" />
+                BARRERA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto animate__animated animate__fadeInRight">
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="../home/index.html">Vehículos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="../AcercaDe/index.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="../home/index.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container mt-5 pt-4 my-5">
+        <div class="row g-4 my-5">
+            <!-- Carrusel de Imágenes -->
+            <div class="col-lg-7">
+                <div id="vehicleCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <img src="../img/forte2018.png" class="d-block w-100" alt="Kia Forte frontal">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://source.unsplash.com/random/800x600?toyota-corolla,2" class="d-block w-100" alt="Kia Forte lateral">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../img/forte2018.png" class="d-block w-100" alt="Kia Forte interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://source.unsplash.com/random/800x600?toyota-corolla,4" class="d-block w-100" alt="Kia Forte maletero">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#vehicleCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#vehicleCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Información del Vehículo -->
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h1 class="fw-bold mb-3">Kia Forte 2018</h1>
+
+                        <div class="mb-4">
+                            <h3 class="text-primary">$45 <small class="text-muted fs-6">/día</small></h3>
+                            <p class="text-success fw-bold mb-0"><i class="fas fa-check-circle me-2"></i>Disponible ahora</p>
+                        </div>
+
+                        <hr>
+
+                        <!-- Especificaciones -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-3">Especificaciones</h5>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="icon-box-sm bg-light-primary me-2">
+                                            <i class="fas fa-car text-primary"></i>
+                                        </div>
+                                        <span>Tipo: <strong>Compacto</strong></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="icon-box-sm bg-light-primary me-2">
+                                            <i class="fas fa-gas-pump text-primary"></i>
+                                        </div>
+                                        <span>Combustible: <strong>Gasolina</strong></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="icon-box-sm bg-light-primary me-2">
+                                            <i class="fas fa-users text-primary"></i>
+                                        </div>
+                                        <span>Pasajeros: <strong>5</strong></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="icon-box-sm bg-light-primary me-2">
+                                            <i class="fas fa-suitcase text-primary"></i>
+                                        </div>
+                                        <span>Maletas: <strong>2</strong></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="icon-box-sm bg-light-primary me-2">
+                                            <i class="fas fa-tachometer-alt text-primary"></i>
+                                        </div>
+                                        <span>Transmisión: <strong>Automática</strong></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="icon-box-sm bg-light-primary me-2">
+                                            <i class="fas fa-snowflake text-primary"></i>
+                                        </div>
+                                        <span>Aire Acondicionado: <strong>Sí</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Botones de Acción -->
+                        <div class="d-grid gap-3">
+                            <a id="whatsappLink" class="btn btn-success btn-lg" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i> Reservar por WhatsApp
+                            </a>
+                            <button id="showEmailForm" class="btn btn-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i> Enviar por Correo
+                            </button>
+                        </div>
+
+                        <script>
+                            // Datos del vehículo
+                            const telefono = "+50377403503";
+                            const vehiculo = "Kia Forte 2018";
+                            const tipo = "Compacto";
+                            const combustible = "Gasolina";
+                            const pasajeros = 5;
+                            const maletas = 2;
+                            const transmision = "Automática";
+                            const aire = "Sí";
+                            const precio = "$45 /día";
+
+                            // Construir mensaje
+                            const mensaje = 
+                                `Hola, estoy interesado en alquilar ${vehiculo}\n\n` +
+                                `Especificaciones\n` +
+                                `Tipo: ${tipo}\n` +
+                                `Combustible: ${combustible}\n` +
+                                `Pasajeros: ${pasajeros}\n` +
+                                `Maletas: ${maletas}\n` +
+                                `Transmisión: ${transmision}\n` +
+                                `Aire Acondicionado: ${aire}\n` +
+                                `${precio}`;
+
+                            // Codificar mensaje para URL
+                            const mensajeCodificado = encodeURIComponent(mensaje);
+
+                            // Crear URL de WhatsApp
+                            const url = `https://wa.me/${telefono}?text=${mensajeCodificado}`;
+
+                            // Asignar URL al enlace
+                            document.getElementById("whatsappLink").href = url;
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario de Correo (oculto inicialmente) -->
+        <div class="row mt-4 d-none" id="emailFormContainer">
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="mb-0">Solicitud de Reserva</h3>
+                            <button id="closeEmailForm" class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <p class="text-muted mb-4">Estás solicitando información/reserva para: <strong>Kia Forte 2018</strong></p>
+                        
+                        <form id="reservationForm" action="https://formsubmit.co/contacto@barrerarentacar.com" method="POST">
+                            <input type="hidden" name="_subject" value="Solicitud de reserva - Toyota Corolla 2023">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="Vehiculo" value="Toyota Corolla 2023">
+                            <input type="hidden" name="Precio" value="$45/día">
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="reservationName" name="Nombre" placeholder="Nombre" required>
+                                        <label for="reservationName">Nombre completo</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="reservationEmail" name="Email" placeholder="Email" required>
+                                        <label for="reservationEmail">Correo electrónico</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="tel" class="form-control" id="reservationPhone" name="Telefono" placeholder="Teléfono" required>
+                                        <label for="reservationPhone">Teléfono</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="reservationDates" name="Fechas" placeholder="Fechas de renta" required>
+                                        <label for="reservationDates">Fechas de renta</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="reservationMessage" name="Mensaje" placeholder="Mensaje adicional" style="height: 100px"></textarea>
+                                        <label for="reservationMessage">Mensaje adicional</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="reservationTerms" name="Terminos" required>
+                                        <label class="form-check-label small" for="reservationTerms">
+                                            Acepto los <a href="#" class="text-primary">términos y condiciones</a> de renta.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary px-4 py-2">
+                                        <i class="fas fa-paper-plane me-2"></i> Enviar Solicitud
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Descripción Detallada -->
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold mb-4">Descripción</h3>
+                        <p>El Kia Forte 2018 es la opción ideal para quienes buscan un sedán compacto con excelente rendimiento, comodidad y diseño moderno. Este modelo destaca por su motor eficiente, conectividad avanzada y características que garantizan una experiencia de conducción placentera.</p>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold mb-4">Políticas de Renta</h3>
+                        <div class="mb-3">
+                            <h6 class="fw-bold"><i class="fas fa-gas-pump text-primary me-2"></i> Combustible</h6>
+                            <p class="small">El vehículo se entrega con tanque lleno y debe devolverse en las mismas condiciones.</p>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="fw-bold"><i class="fas fa-calendar-alt text-primary me-2"></i> Duración Mínima</h6>
+                            <p class="small">Renta mínima de 24 horas. Tarifas especiales para rentas semanales o mensuales.</p>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="fw-bold"><i class="fas fa-id-card text-primary me-2"></i> Requisitos</h6>
+                            <p class="small">Licencia de conducir vigente, tarjeta de crédito y identificación oficial.</p>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold"><i class="fas fa-shield-alt text-primary me-2"></i> Seguro</h6>
+                            <p class="small">Todos nuestros vehículos incluyen seguro básico. Opciones de cobertura adicional disponibles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5 col-md-6">
+                    <h5 class="fw-bold mb-4"><i class="fas fa-car me-2"></i>Barrera RentaCar</h5>
+                    <p>Ofrecemos la mejor experiencia en renta de vehículos con atención personalizada y una flota moderna.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../home/index.html" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="../home/index.html#vehiculos" class="text-white text-decoration-none">Vehículos</a></li>
+                        <li class="mb-2"><a href="../AcercaDe/index.html" class="text-white text-decoration-none">Nosotros</a></li>
+                        <li><a href="../home/index.html#contacto" class="text-white text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +503 2525 2525</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> infobarrerarentacar@gmail.com</li>
+                        <li><i class="fas fa-clock me-2"></i> Lun-Vie: 8:00 - 18:00</li>
+                    </ul>
+                </div>
+                
+            </div>
+            <hr class="mt-4 mb-3">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Barrera Rentar. Todos los derechos reservados.</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Script personalizado -->
+    <script>
+        // Mostrar/ocultar formulario de correo
+        $('#showEmailForm').click(function() {
+            $('#emailFormContainer').removeClass('d-none');
+            $('html, body').animate({
+                scrollTop: $('#emailFormContainer').offset().top - 20
+            }, 500);
+        });
+        
+        $('#closeEmailForm').click(function() {
+            $('#emailFormContainer').addClass('d-none');
+        });
+        
+        // Manejo del formulario de reserva
+        $('#reservationForm').submit(function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = $(form).find('button[type="submit"]');
+            const originalBtnText = submitBtn.html();
+            
+            // Mostrar spinner de carga
+            submitBtn.html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Enviando...');
+            submitBtn.prop('disabled', true);
+            
+            // Simular envío (en producción usaría fetch o similar)
+            setTimeout(() => {
+                // Aquí iría la lógica real de envío con fetch
+                alert('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo pronto.');
+                submitBtn.html(originalBtnText);
+                submitBtn.prop('disabled', false);
+                $('#emailFormContainer').addClass('d-none');
+                form.reset();
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
