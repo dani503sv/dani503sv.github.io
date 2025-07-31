@@ -96,6 +96,20 @@
     color: white !important;
 }
 
+input[type="date"]:focus {
+    border-color: #FF6B00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
+}
+
+.form-floating label {
+    color: #888;
+}
+
+#resumenFechas {
+    font-weight: 500;
+    color: #444;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .carousel-item img {
