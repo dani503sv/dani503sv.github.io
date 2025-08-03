@@ -242,10 +242,9 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4 p-md-5">
                         <h4 class="mb-4">Envíanos un mensaje</h4>
-                        <form id="contactForm" action="https://formsubmit.co/contacto@barrerarentacar.com" method="POST">
+                        <form id="contactForm" onsubmit="enviarPorCorreo(event)">
                             <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web">
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
                             
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -300,6 +299,35 @@
                                 </div>
                             </div>
                         </form>
+
+                        <script>
+                            function enviarPorCorreo(event) {
+                                event.preventDefault();
+                                
+                                // Obtener los valores del formulario
+                                const nombre = document.getElementById('nombre').value;
+                                const email = document.getElementById('email').value;
+                                const telefono = document.getElementById('telefono').value;
+                                const asunto = document.getElementById('asunto').value;
+                                const mensaje = document.getElementById('mensaje').value;
+                                
+                                // Construir el cuerpo del correo
+                                let cuerpo = `Nombre: ${nombre}%0D%0A`;
+                                cuerpo += `Email: ${email}%0D%0A`;
+                                cuerpo += `Teléfono: ${telefono}%0D%0A`;
+                                cuerpo += `Asunto: ${asunto}%0D%0A%0D%0A`;
+                                cuerpo += `Mensaje:%0D%0A${mensaje}`;
+                                
+                                // Codificar el asunto para URL
+                                const asuntoCodificado = encodeURIComponent(asunto);
+                                
+                                // Crear el enlace mailto con el destinatario fijo
+                                const mailtoLink = `mailto:rentacarxbarrera@gmail.com?subject=${asuntoCodificado}&body=${cuerpo}`;
+                                
+                                // Abrir el cliente de correo
+                                window.location.href = mailtoLink;
+                            }
+                        </script>
                         <div id="formSuccess" class="alert alert-success mt-3 d-none">
                             ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
                         </div>
@@ -378,4 +406,5 @@
     <!-- Script personalizado -->
     <script src="script.js"></script>
 </body>
+
 </html>
