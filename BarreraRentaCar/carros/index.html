@@ -285,7 +285,7 @@
                     Estás solicitando información/reserva para: <strong id="vehicleName">Kia Forte 2018</strong>
                     </p>
 
-                    <form id="reservationForm" method="POST" novalidate>
+                    <form id="reservationForm"   method="POST" novalidate>
                         <!-- Configuración -->
                         <input type="hidden" name="_subject" value="Solicitud de reserva - Kia Forte 2018">
                         <input type="hidden" name="_captcha" value="false">
@@ -295,43 +295,43 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="reservationName" name="Nombre" placeholder="Nombre" required>
-                                <label for="reservationName">Nombre completo</label>
+                                <input type="text" class="form-control" id="txtNombreCorreo" name="Nombre" placeholder="Nombre" required>
+                                <label for="txtNombreCorreo">Nombre completo</label>
                                 <div class="invalid-feedback">Por favor ingresa tu nombre completo</div>
                             </div>
                             </div>
                             <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="reservationEmail" name="Email" placeholder="Email" required>
-                                <label for="reservationEmail">Correo electrónico</label>
+                                <input type="email" class="form-control" id="txtCorreo" name="Email" placeholder="Email" required>
+                                <label for="txtCorreo">Correo electrónico</label>
                                 <div class="invalid-feedback">Por favor ingresa un correo válido</div>
                             </div>
                             </div>
                             <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" id="reservationPhone" name="Telefono" placeholder="Teléfono" required>
-                                <label for="reservationPhone">Teléfono</label>
+                                <input type="tel" class="form-control" id="txtTelefonoCorreo" name="Telefono" placeholder="Teléfono" required>
+                                <label for="txtTelefonoCorreo">Teléfono</label>
                                 <div class="invalid-feedback">Por favor ingresa tu número de teléfono</div>
                             </div>
                             </div>
                             <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="date" class="form-control" id="reservationStartDate" name="Fecha_Inicio" required min="">
-                                <label for="reservationStartDate">Fecha de inicio</label>
+                                <input type="date" class="form-control" id="dtInicio" name="Fecha_Inicio" required min="">
+                                <label for="dtInicio">Fecha de inicio</label>
                                 <div class="invalid-feedback">Selecciona una fecha válida</div>
                             </div>
                             </div>
                             <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="date" class="form-control" id="reservationEndDate" name="Fecha_Fin" required min="">
-                                <label for="reservationEndDate">Fecha de fin</label>
+                                <input type="date" class="form-control" id="dtFin" name="Fecha_Fin" required min="">
+                                <label for="dtFin">Fecha de fin</label>
                                 <div class="invalid-feedback">La fecha final debe ser posterior a la de inicio</div>
                             </div>
                             </div>
                             <div class="col-12">
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="reservationMessage" name="Mensaje" placeholder="Mensaje adicional" style="height: 100px"></textarea>
-                                <label for="reservationMessage">Mensaje adicional (opcional)</label>
+                                <textarea class="form-control" id="txtMensajeCorreo" name="Mensaje" placeholder="Mensaje adicional" style="height: 100px"></textarea>
+                                <label for="txtMensajeCorreo">Mensaje adicional (opcional)</label>
                             </div>
                             </div>
                             <div class="col-12">
@@ -340,7 +340,6 @@
                                 <label class="form-check-label small" for="reservationTerms">
                                 Acepto los <a href="#" class="text-primary">términos y condiciones</a> de renta.
                                 </label>
-                                <div class="invalid-feedback d-block">Debes aceptar los términos y condiciones</div>
                             </div>
                             </div>
                             <div class="col-12 text-end">
@@ -358,71 +357,70 @@
                 </div>
             </div>
         </div>
-
         
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-            // Configurar fecha mínima (hoy)
-            const today = new Date();
-            const todayStr = today.toISOString().split('T')[0];
-            document.getElementById('reservationStartDate').min = todayStr;
-            document.getElementById('reservationEndDate').min = todayStr;
-            
-            // Calcular días y precio cuando cambian las fechas
-            const startDateInput = document.getElementById('reservationStartDate');
-            const endDateInput = document.getElementById('reservationEndDate');
-            
-            startDateInput.addEventListener('change', function() {
-                // Cuando cambia la fecha de inicio, establecer mínimo 3 días después para fecha fin
-                if (this.value) {
-                const startDate = new Date(this.value);
-                const minEndDate = new Date(startDate);
-                minEndDate.setDate(startDate.getDate() + 2); // Mínimo 3 días de renta
-                
-                const minEndDateStr = minEndDate.toISOString().split('T')[0];
-                endDateInput.min = minEndDateStr;
-                
-                // Si la fecha fin actual es anterior al nuevo mínimo, resetearla
-                if (endDateInput.value && new Date(endDateInput.value) < minEndDate) {
-                    endDateInput.value = minEndDateStr;
-                }
-                }
-                calculateDaysAndPrice();
-            });
-            
-            endDateInput.addEventListener('change', calculateDaysAndPrice);
-            
-            function calculateDaysAndPrice() {
-                const startDate = new Date(startDateInput.value);
-                const endDate = new Date(endDateInput.value);
-                const errorElement = document.getElementById('emailDateError');
-                const summaryElement = document.getElementById('emailDateSummary');
-                
-                if (startDate && endDate) {
-                const diffTime = endDate - startDate;
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-                
-                if (diffDays < 3) {
-                    errorElement.textContent = 'La reserva debe ser por al menos 3 días';
-                    errorElement.classList.remove('d-none');
-                    summaryElement.classList.add('d-none');
-                    endDateInput.classList.add('is-invalid');
-                    return;
-                }
-                
-                errorElement.classList.add('d-none');
-                summaryElement.classList.remove('d-none');
-                endDateInput.classList.remove('is-invalid');
-                
-                const pricePerDay = 45; // Esto debería venir de tu sistema
-                const totalPrice = diffDays * pricePerDay;
-                
-                document.getElementById('daysCount').textContent = diffDays;
-                document.getElementById('totalPrice').textContent = `$${totalPrice}`;
-                }
-            }
-            
-            // ... (el resto del código de validación permanece igual) ...
+                    // Configurar fecha mínima (hoy)
+                    const today = new Date();
+                    const todayStr = today.toISOString().split('T')[0];
+                    document.getElementById('dtInicio').min = todayStr;
+                    document.getElementById('dtFin').min = todayStr;
+                    
+                    // Calcular días y precio cuando cambian las fechas
+                    const startDateInput = document.getElementById('dtInicio');
+                    const endDateInput = document.getElementById('dtFin');
+                    
+                    startDateInput.addEventListener('change', function() {
+                        // Cuando cambia la fecha de inicio, establecer mínimo 3 días después para fecha fin
+                        if (this.value) {
+                        const startDate = new Date(this.value);
+                        const minEndDate = new Date(startDate);
+                        minEndDate.setDate(startDate.getDate() + 2); // Mínimo 3 días de renta
+                        
+                        const minEndDateStr = minEndDate.toISOString().split('T')[0];
+                        endDateInput.min = minEndDateStr;
+                        
+                        // Si la fecha fin actual es anterior al nuevo mínimo, resetearla
+                        if (endDateInput.value && new Date(endDateInput.value) < minEndDate) {
+                            endDateInput.value = minEndDateStr;
+                        }
+                        }
+                        calculateDaysAndPrice();
+                    });
+                    
+                    endDateInput.addEventListener('change', calculateDaysAndPrice);
+                    
+                    function calculateDaysAndPrice() {
+                        const startDate = new Date(startDateInput.value);
+                        const endDate = new Date(endDateInput.value);
+                        const errorElement = document.getElementById('emailDateError');
+                        const summaryElement = document.getElementById('emailDateSummary');
+                        
+                        if (startDate && endDate) {
+                        const diffTime = endDate - startDate;
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                        
+                        if (diffDays < 3) {
+                            errorElement.textContent = 'La reserva debe ser por al menos 3 días';
+                            errorElement.classList.remove('d-none');
+                            summaryElement.classList.add('d-none');
+                            endDateInput.classList.add('is-invalid');
+                            return;
+                        }
+                        
+                        errorElement.classList.add('d-none');
+                        summaryElement.classList.remove('d-none');
+                        endDateInput.classList.remove('is-invalid');
+                        
+                        const pricePerDay = 45; // Esto debería venir de tu sistema
+                        const totalPrice = diffDays * pricePerDay;
+                        
+                        document.getElementById('daysCount').textContent = diffDays;
+                        document.getElementById('totalPrice').textContent = `$${totalPrice}`;
+                        }
+                    }
+                    
+                    
             });
         </script>
       
@@ -538,16 +536,74 @@
             // Mostrar spinner de carga
             submitBtn.html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Enviando...');
             submitBtn.prop('disabled', true);
-            
-            // Simular envío (en producción usaría fetch o similar)
-            setTimeout(() => {
+
+                
+                //obtener datos de los campos del formulario
+                const nombre = document.getElementById('txtNombreCorreo').value;
+                const email = document.getElementById('txtCorreo').value;    
+                const telefono = document.getElementById('txtTelefonoCorreo').value;
+                const fechaInicio = document.getElementById('dtInicio').value;
+                const fechaFin = document.getElementById('dtFin').value;
+                const mensaje = document.getElementById('txtMensajeCorreo').value;
+                const Terminos = document.getElementById('reservationTerms').checked;
+                const dias = document.getElementById('daysCount').textContent;
+                const totalPrice = document.getElementById('totalPrice').textContent;
+
+                // Validar campos requeridos
+                if (!nombre || !email || !telefono || !fechaInicio || !fechaFin || !mensaje || Terminos === false) {
+                    alert('Por favor completa todos los campos requeridos.');
+                    submitBtn.html(originalBtnText);
+                    submitBtn.prop('disabled', false);
+                    return;
+                }
+
+                const vehiculo = "Kia Forte 2018";
+                const placa = "P123XYZ";
+                const precio = 35; // Precio por día
+
+                if(dias < 3) {
+                    document.getElementById('emailDateError').textContent = 'La reserva debe ser por al menos 3 días';
+                    document.getElementById('emailDateError').classList.remove('d-none');
+                    return; 
+                }
+
+                //mensaje para enviar por correo
+                const cuerpo = `
+                    Nombre: ${nombre}%0D%0A
+                    Email: ${email}%0D%0A
+                    Teléfono: ${telefono}%0D%0A
+                    Fecha de Inicio: ${fechaInicio}%0D%0A
+                    Fecha de Fin: ${fechaFin}%0D%0A
+                    Mensaje: ${mensaje}%0D%0A
+                    ------------------------------------------%0D%0A
+                    Vehículo: ${vehiculo}%0D%0A
+                    Placa: ${placa}%0D%0A
+                    Precio por Día: $${precio}%0D%0A
+                    ------------------------------------------%0D%0A
+                    Días de Renta: ${dias}%0D%0A
+                    Total Estimado: ${totalPrice}%0D%0A
+                `;
+
+                // Codificar el asunto para URL
+                const asunto = `Solicitud de Reserva - ${vehiculo}`;
+                const asuntoCodificado = encodeURIComponent(asunto);
+
+                // Crear el enlace mailto con el destinatario fijo
+                const mailtoLink = `mailto:rentacarxbarrera@gmail.com?subject=${asuntoCodificado}&body=${cuerpo}`;
+                
+                // Abrir el cliente de correo
+                window.location.href = mailtoLink;
+
+                setTimeout(() => {
                 // Aquí iría la lógica real de envío con fetch
-                alert('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo pronto.');
+                alert('Nos pondremos en contacto contigo pronto.');
                 submitBtn.html(originalBtnText);
                 submitBtn.prop('disabled', false);
                 $('#emailFormContainer').addClass('d-none');
                 form.reset();
-            }, 1500);
+                }, 1500);
+
+            
         });
         
     </script>
