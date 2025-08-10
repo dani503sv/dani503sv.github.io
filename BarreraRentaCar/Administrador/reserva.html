@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Reservas - CITY SV</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f4f6f9;
+        scroll-behavior: smooth;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    nav.navbar {
+        background: linear-gradient(90deg, #1d3557, #1d3557);
+    }
+    nav a {
+        color: white !important;
+        font-weight: 500;
+    }
+    nav a:hover {
+        color: #004AAD !important;
+    }
+    section {
+        padding: 60px 0;
+    }
+    .section-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+        font-weight: bold;
+        color: #1d3557;
+    }
+    .form-control, .form-select {
+        border-radius: 8px;
+    }
+    .btn {
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+    .btn-warning:hover { background-color: #004AAD; }
+    table {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    table thead {
+        background-color: #1d3557;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">CITY SV - Reservas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#crear">Crear</a></li>
+                <li class="nav-item"><a class="nav-link" href="#listar">Ver</a></li>
+                <li class="nav-item"><a class="nav-link" href="#actualizar">Actualizar</a></li>
+                <li class="nav-item"><a class="nav-link" href="#estado">Estado</a></li>
+                <li class="nav-item"><a class="nav-link" href="carros.html">Vehículos</a></li>
+                <li class="nav-item"><a class="nav-link" href="usuario.html">Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- CREAR RESERVA -->
+<section id="crear">
+    <div class="container my-3">
+        <div class="section-card">
+            <h2>📅 Crear Reserva</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">ID Carro</label>
+                        <input type="number" id="txtCrearIdCarro" class="form-control" placeholder="Ej: 1">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Nombre Cliente</label>
+                        <input type="text" id="txtCrearNombreCliente" class="form-control" placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Teléfono Cliente</label>
+                        <input type="tel" id="txtCrearTelefonoCliente" class="form-control" placeholder="Ej: 555-123456">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Fecha Inicio</label>
+                        <input type="date" id="fechaInicio" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Fecha Fin</label>
+                        <input type="date" id="fechaFin" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Estado Reserva</label>
+                        <select class="form-select" id="cmbCrearEstadoReserva">
+                            <option>Pendiente</option>
+                            <option>Confirmada</option>
+                            <option>En curso</option>
+                            <option>Finalizada</option>
+                            <option>Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label">Método de Pago</label>
+                        <select class="form-select" id="cmbCrearMetodoPago">
+                            <option>Efectivo</option>
+                            <option>Tarjeta</option>
+                            <option>Transferencia</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Notas</label>
+                        <textarea class="form-control" id="txtCrearNotas" rows="3" placeholder="Observaciones..."></textarea>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="submit" id="btnCrearReserva" class="btn btn-warning">Guardar Reserva</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- LISTAR RESERVAS -->
+<section id="listar">
+    <div class="container">
+        <div class="section-card">
+            <h2>📋 Lista de Reservas</h2>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID Carro</th>
+                            <th>Cliente</th>
+                            <th>Teléfono</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Estado</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>5</td>
+                            <td>Juan Pérez</td>
+                            <td>555-123456</td>
+                            <td>2025-08-10</td>
+                            <td>2025-08-15</td>
+                            <td>Pendiente</td>
+                            <td>$250</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACTUALIZAR -->
+<section id="actualizar">
+    <div class="container">
+        <div class="section-card">
+            <h2>✏️ Actualizar Reserva</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">ID Reserva</label>
+                        <input type="number" id="txtActualizarID" class="form-control" placeholder="Ej: 1">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Campo a Actualizar</label>
+                        <select class="form-select" id="cmbActualizarCampo">
+                            <option value="nombre_cliente">Nombre cliente</option>
+                            <option value="telefono_cliente">Teléfono cliente</option>
+                            <option value="metodo_pago">Método de Pago</option>
+                            <option value="notas">Notas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Nuevo Valor</label>
+                        <input type="text" class="form-control" id="txtActualizarValor">
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="submit" id="btnActualizarReserva" class="btn btn-warning">Actualizar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- CAMBIAR ESTADO -->
+<section id="estado">
+    <div class="container">
+        <div class="section-card">
+            <h2>🔄 Cambiar Estado</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">ID Reserva</label>
+                        <input type="number" id="txtCambiarEstadoID" class="form-control" placeholder="Ej: 1">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Nuevo Estado</label>
+                        <select class="form-select" id="cmbCambiarEstado">
+                            <option>Pendiente</option>
+                            <option>Confirmada</option>
+                            <option>En curso</option>
+                            <option>Finalizada</option>
+                            <option>Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-warning">Cambiar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById("fechaInicio").addEventListener("change", calcularTotal);
+    document.getElementById("fechaFin").addEventListener("change", calcularTotal);
+    document.getElementById("precioDia").addEventListener("input", calcularTotal);
+
+    function calcularTotal(){
+        let inicio = new Date(document.getElementById("fechaInicio").value);
+        let fin = new Date(document.getElementById("fechaFin").value);
+        let precioDia = parseFloat(document.getElementById("precioDia").value) || 0;
+
+        if(inicio && fin && precioDia > 0){
+            let dias = (fin - inicio) / (1000*60*60*24);
+            document.getElementById("precioTotal").value = dias > 0 ? dias * precioDia : 0;
+        }
+    }
+</script>
+</body>
+</html>
